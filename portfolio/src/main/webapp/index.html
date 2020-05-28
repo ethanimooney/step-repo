@@ -3,18 +3,79 @@
   <head>
     <meta charset="UTF-8">
     <title>Ethan's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/75dadd3f2b.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
   </head>
   <body>
 
-      <nav>
-          <a href="">ABOUT ME</a>
-          <a href="">RESUME</a>
-          <a href="">CONTACT</a>
-      </nav>
-    <div id="content">
-      <h1>Ethan Mooney</h1>
+    <nav>
+        <a href="#connect">connect</a>
+    </nav>
+
+    <div class="header" onmouseover="changeText('no, really, you\'re great')" onmouseout="changeTextBack('your new best friend')">
+        <h1 class="header-item">Ethan Mooney</h1>
+        <div class="header-item" id="text-switcher" style="font-size: 30pt; color: #353535" >your new best friend</div>
+    </div>
+
+    <div class="flex-container">
+      <div class="flex-item-mid" id="about">
+          <div class="about-container">
+              <div class="about-item-left">
+                <div class="about-item-left-item">
+                     <img src="/images/ethan-p1.jpeg" width="100px">
+                     <img src="/images/ethan-p2.jpeg" width="100px">
+                     <img src="/images/ethan-p3.jpeg" width="100px">
+                     <img src="/images/ethan-p4.jpeg" width="100px">
+                     <img src="/images/ethan-p5.jpeg" width="100px">
+                     <img src="/images/ethan-p6.JPG" width="100px">
+                </div>
+                <div class="about-item-left-item">
+                    <p>
+                        Hey there! I'm Ethan Mooney, an aspiring software engineer from Edmond, Oklahoma.</br>
+                        I am studying Computer Science with Business at Oklahoma Christian University,
+                        and I am currently a STEP intern at Google.
+                        </br>
+                        </br>
+                        My main hobbies include photography, gaming, technology repair, and bouldering.</br>
+                        Channeling my inner nerd, I also co-lead a Pokemon TCG league at a local card shop.
+                        </br>
+                        </br>
+                        I began programming in 7th grade, when I was introduced to Scratch. I really enjoyed
+                        it, so once I got to my sophomore year of high school, I had the chance to enroll
+                        in a local vocational technology center's Computer Science Academy. This was where
+                        my love of coding really took hold and I learned enough to make me decide to pursue
+                        computer science as a degree and a career.
+                    </p>
+                </div>
+              </div>
+              <div class="about-item-right">
+                  <h3>Skills</h3>
+                  <p>C++ | HTML/CSS | Java | Python
+                      </br></br>
+                  </p>
+
+                  <h3>Projects</h3>
+                  <p>wheell [webapp that gives wheelchair users detailed information about searched locations]
+                      </br></br>
+                      udining.com [re-designed website for a local university dining company]
+                      </br></br>
+                      swablu [discord server management bot]
+                      </br></br>
+                      ethanmooney.me [personal website]
+                  </p>
+              </div>
+          </div>
+      </div>
+      <div class="flex-item-bottom" id="connect">
+          <a class="icon-link" href="https://www.linkedin.com/in/ethanimooney/"><i class="fab fa-linkedin fa-7x"></i></a>
+          <a class="icon-link" href="https://www.github.com/ethanimooney/"><i class="fab fa-github-square fa-7x"></i></a>
+          <a class="icon-link" href="https://www.instagram.com/ethanimooney/"><i class="fab fa-instagram-square fa-7x"></i></a>
+          <a class="icon-link" href="https://www.twitter.com/ethanimooney/"><i class="fab fa-twitter-square fa-7x"></i></a>
+      </div>
+      
     </div>
   </body>
 </html>
