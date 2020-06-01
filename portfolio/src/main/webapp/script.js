@@ -24,3 +24,9 @@ function changeTextBack(text){
     display.innerHTML = "";
     display.innerHTML = text;
 }
+
+function getData() {
+  fetch('/data').then(response => response.text()).then((data) => {
+    document.getElementById('data-container').innerText = data;
+  });
+}
