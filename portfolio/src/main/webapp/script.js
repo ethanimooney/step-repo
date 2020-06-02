@@ -26,7 +26,7 @@ function changeTextBack(text){
 }
 
 function getData() {
-  fetch('/data').then(response => response.text()).then((data) => {
-    document.getElementById('data-container').innerText = data;
+  fetch('/data').then(response => response.json()).then((data) => {
+    document.getElementById('data-container').innerText = data[0];
   });
 }
