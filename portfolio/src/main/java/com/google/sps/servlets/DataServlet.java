@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Arrays;
 import com.google.gson.Gson;
 
 
@@ -27,7 +28,7 @@ import com.google.gson.Gson;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-  ArrayList<String> dataList = new ArrayList<String>(Arrays.asList("Hi, I'm Ethan.", "Hey, I'm Ethan!", "Hello! I'm Ethan"));
+  ArrayList<String> dataList = new ArrayList<String>(Arrays.asList("Hi, I\'m Ethan.", "Hey, I\'m Ethan!", "Hello! I\'m Ethan"));
  
 
   @Override
