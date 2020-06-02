@@ -12,21 +12,32 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+package com.google.sps.data;
 
-function changeText(text) {
-  var display = document.getElementById('text-switcher');
-  display.innerHTML = "";
-  display.innerHTML = text;
+import java.util.Date;
+
+public final class Comment {
+
+  private final Date timestamp;
+  private final String author;
+  private final String message;
+
+  public Comment(Date timestamp, String author, String message) {
+    this.timestamp = timestamp;
+    this.author = author;
+    this.message = message;
+  }
+
+  public Date getTimestamp() {
+    return timestamp;
+  }
+
+   public String getAuthor() {
+    return author;
+  }
+
+   public String getMessage() {
+    return message;
+  }
 }
 
-function changeTextBack(text) {
-  var display = document.getElementById('text-switcher');
-  display.innerHTML = "";
-  display.innerHTML = text;
-}
-
-function getData() {
-  fetch('/data').then(response => response.json()).then((data) => {
-    document.getElementById('data-container').innerText = data[0];
-  });
-}
