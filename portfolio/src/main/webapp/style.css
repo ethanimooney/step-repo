@@ -129,6 +129,86 @@ ul li {
   margin-top: 5px;
 }
 
+/* Comments */
+
+.flex-item-mid-two {
+  align-items: center;
+  background-color: #e5e5e5;
+  color: #353535;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  min-height: 600px;
+  padding: 15px 0 15px 0;
+}
+
+.comment-container {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.form-item {
+  align-content: center;
+  background-color: #f0a868;
+  border-radius: 50px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 10px 0 10px 0;
+  min-height: 400px;
+  padding: 50px;
+  width: 35%;
+}
+
+form {
+  width: 100%;
+}
+
+input[type=text], input[type=textarea] {
+  border: none;
+  border-radius: 50px;
+  width: 200px;
+  padding: 10px;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus, input[type=textarea]:focus {
+  background-color: #353535;
+  border: none;
+  border-radius: 50px;
+  color: #ffffff;
+  width: 100%;
+  padding: 10px;
+}
+
+input[type=submit] {
+  background-color: #353535;
+  border: none;
+  border-radius: 50px;
+  color: #ffffff;
+  padding: 10px;
+}
+
+input[type=submit]:hover {
+  background-color: #e5e5e5;
+  border: none;
+  border-radius: 50px;
+  color: #f0a868;
+  padding: 10px;
+}
+
+.comments-item {
+  background-color: #f0a868;
+  border-radius: 50px;
+  padding: 50px;
+  margin: 10px 0 10px 0;
+  min-height: 400px;
+  width: 35%;
+}
+
 /* Footer */
 
 .flex-item-bottom {

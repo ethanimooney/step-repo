@@ -13,7 +13,6 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
-
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +27,31 @@ import com.google.gson.Gson;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
-  ArrayList<String> dataList = new ArrayList<String>(Arrays.asList("Hi, I\'m Ethan.", "Hey, I\'m Ethan!", "Hello! I\'m Ethan"));
+  ArrayList<String> dataList = new ArrayList<String>();
  
+
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    // Get the input from the form.
+    String message = getParameter(request, "cf-message", "");
+
+    dataList.add(message);
+    // Respond with the result.
+    response.setContentType("text/html;");
+    response.getWriter().println(message);
+    response.sendRedirect("/index.html");
+  }
+
+  /*
+   * @return the request parameter, or the default value if the parameter
+   *         was not specified by the client
+   */
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    return value;
+  }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
