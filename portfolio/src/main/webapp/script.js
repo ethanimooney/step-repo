@@ -25,8 +25,27 @@ function changeTextBack(text) {
   display.innerHTML = text;
 }
 
-function getData() {
-  fetch('/data').then(response => response.json()).then((data) => {
-    document.getElementById('data-container').innerText = data[0];
+function loadComments() {
+  fetch('/list-comments').then(response => response.json()).then((comments) => {
+    const commentListElement = document.getElementById('comments-list');
+    comments.forEach((comment) => {
+      commentListElement.appendChild(createCommentElement(comment));
+    })
   });
+}
+
+function createCommentElement(comment) {
+  const commentElement = document.createElement('div');
+  commentElement.className = 'comment-element';
+
+  const authorElement = document.createElement('h3');
+  authorElement.innerText = comment.author;
+
+  const messageElement = document.createElement('p');
+  messageElement.innerText = comment.message;
+
+  commentElement.appendChild(authorElement);
+  commentElement.appendChild(messageElement);
+  //taskElement.appendChild(deleteButtonElement);
+  return commentElement;
 }

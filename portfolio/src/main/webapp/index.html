@@ -46,7 +46,7 @@ to represent the company, product, or service to which they refer.**
 	<link rel="icon" href="/images/favicon.png">
 </head>
 
-<body>
+<body onload="loadComments()">
 
 	<nav>
 		<a href="#connect">connect</a>
@@ -118,8 +118,7 @@ to represent the company, product, or service to which they refer.**
 							<input type="submit" value="Submit">
               </form>
 					</div>
-					<div class="comments-item">
-						Test
+					<div class="comments-item" id="comments-list" >
 					</div>
 				</div>
 			</div>
