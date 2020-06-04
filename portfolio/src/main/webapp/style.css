@@ -200,6 +200,21 @@ input[type=submit]:hover {
   padding: 10px;
 }
 
+.comment-element {
+  background-color: #e5e5e5;
+  border-radius: 25px;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 15px;
+  margin: 5px 0 5px 0;
+  word-wrap: break-word;
+}
+
+.comment-element p,
+.comment-element h3 {
+   max-width: 100%;
+}
+
 .comments-item {
   background-color: #f0a868;
   border-radius: 50px;
