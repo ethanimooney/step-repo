@@ -15,8 +15,9 @@
 package com.google.sps.data;
 import java.util.Date;
 
-/** An individual comment instance, contains the comments
-* id, timestamp, author name, and message
+/** 
+* An individual comment instance, contains the comments data:
+* id, timestamp, author name, and message.
 */
 public final class Comment {
 

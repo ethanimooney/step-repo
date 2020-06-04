@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//Servlet that lists the comments
+// Servlet that lists the comments
 @WebServlet("/list-comments")
 public class ListCommentsServlet extends HttpServlet {
 
@@ -27,6 +27,14 @@ public class ListCommentsServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
+    Gson gson = new Gson();
+
+    response.setContentType("application/json;");
+    response.setCharacterEncoding("UTF-8"); 
+    response.getWriter().println(gson.toJson(fillList(results)));
+  }
+
+  public List<Comment> fillList(PreparedQuery results){
     List<Comment> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
@@ -38,10 +46,6 @@ public class ListCommentsServlet extends HttpServlet {
       comments.add(comment);
     }
 
-    Gson gson = new Gson();
-
-    response.setContentType("application/json;");
-    response.setCharacterEncoding("UTF-8"); 
-    response.getWriter().println(gson.toJson(comments));
+    return comments;
   }
 }

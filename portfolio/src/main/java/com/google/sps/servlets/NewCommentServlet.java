@@ -16,18 +16,21 @@ import com.google.gson.Gson;
 @WebServlet("/new-comment")
 public class NewCommentServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String author = request.getParameter("comment-form-name");
-    String message = request.getParameter("comment-form-message");
-    long timestamp = System.currentTimeMillis();
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    datastore.put(createCommentEntity(request));
+    response.sendRedirect("/index.html");
+  }
 
+  public Entity createCommentEntity(HttpServletRequest request) {
+    String author = request.getParameter("cf-name");
+    String message = request.getParameter("cf-message");
+    long timestamp = System.currentTimeMillis();
+    
     Entity commentEntity = new Entity("Comment");
     commentEntity.setProperty("author", author);
     commentEntity.setProperty("message", message);
     commentEntity.setProperty("timestamp", timestamp);
 
-    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-    datastore.put(commentEntity);
-
-    response.sendRedirect("/index.html");
+    return commentEntity;
   }
 }
