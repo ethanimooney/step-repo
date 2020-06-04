@@ -13,9 +13,11 @@
 // limitations under the License.
 
 package com.google.sps.data;
-
 import java.util.Date;
 
+/** An individual comment instance, contains the comments
+* id, timestamp, author name, and message
+*/
 public final class Comment {
 
   private final long id;

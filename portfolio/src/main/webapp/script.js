@@ -46,6 +46,5 @@ function createCommentElement(comment) {
 
   commentElement.appendChild(authorElement);
   commentElement.appendChild(messageElement);
-  //taskElement.appendChild(deleteButtonElement);
   return commentElement;
 }
