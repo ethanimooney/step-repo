@@ -34,7 +34,7 @@ public class ListCommentsServlet extends HttpServlet {
     response.getWriter().println(gson.toJson(fillList(results)));
   }
 
-  public List<Comment> fillList(PreparedQuery results){
+  private List<Comment> fillList(PreparedQuery results){
     List<Comment> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();

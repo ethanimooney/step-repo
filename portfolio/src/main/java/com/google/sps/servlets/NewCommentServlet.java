@@ -21,7 +21,7 @@ public class NewCommentServlet extends HttpServlet {
     response.sendRedirect("/index.html");
   }
 
-  public Entity createCommentEntity(HttpServletRequest request) {
+  private Entity createCommentEntity(HttpServletRequest request) {
     String author = request.getParameter("cf-name");
     String message = request.getParameter("cf-message");
     long timestamp = System.currentTimeMillis();
