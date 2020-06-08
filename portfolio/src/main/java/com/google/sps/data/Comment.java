@@ -16,19 +16,29 @@ package com.google.sps.data;
 
 import java.util.Date;
 
+/** 
+* An individual comment instance, contains the comments data:
+* id, timestamp, author name, and message.
+*/
 public final class Comment {
 
-  private final Date timestamp;
+  private final long id;
+  private final long timestamp;
   private final String author;
   private final String message;
 
-  public Comment(Date timestamp, String author, String message) {
+  public Comment(long id, long timestamp, String author, String message) {
+    this.id = id;
     this.timestamp = timestamp;
     this.author = author;
     this.message = message;
   }
 
-  public Date getTimestamp() {
+  public long getId() {
+    return id;
+  }
+
+  public long getTimestamp() {
     return timestamp;
   }
 

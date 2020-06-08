@@ -33,6 +33,11 @@ trademarks does not indicate endorsement of the trademark holder by Font
 Awesome, nor vice versa. **Please do not use brand logos for any purpose except
 to represent the company, product, or service to which they refer.**
 -->
+
+<!-- 
+  TODO: (https://github.com/ethanimooney/step-repo/issues/10) Rewrite file to fix the tab space errors in GitHub. Will require entirely new file.
+-->
+
 <!DOCTYPE html>
 <html>
 
@@ -46,7 +51,7 @@ to represent the company, product, or service to which they refer.**
 	<link rel="icon" href="/images/favicon.png">
 </head>
 
-<body>
+<body onload="loadComments()">
 
 	<nav>
 		<a href="#connect">connect</a>
@@ -110,16 +115,15 @@ to represent the company, product, or service to which they refer.**
 			<div class="flex-item-mid-two">
 				<div class="comment-container">
 					<div class="form-item">
-						<form action="/data" method="POST">
-							<label for="cf-name">Name:</label><br>
-							<input type="text" id="cf-name" name="cf-name"><br>
-							<label for="cf-message">Message:</label><br>
-							<input type="textarea" id="cf-message" name="cf-message" style="min-height: 50px; border-radius: 25px;"><br><br>
+						<form action="/new-comment" method="POST">
+							<label for="comment-form-name">Name:</label><br>
+							<input type="text" id="comment-form-name" name="comment-form-name"><br>
+							<label for="comment-form-message">Message:</label><br>
+							<input type="textarea" id="comment-form-message" name="comment-form-message" style="min-height: 50px; border-radius: 25px;"><br><br>
 							<input type="submit" value="Submit">
               </form>
 					</div>
-					<div class="comments-item">
-						Test
+					<div class="comments-item" id="comments-list" >
 					</div>
 				</div>
 			</div>
@@ -139,5 +143,5 @@ to represent the company, product, or service to which they refer.**
 		<script src="https://kit.fontawesome.com/75dadd3f2b.js" crossorigin="anonymous"></script>
 
 </body>
-
+ 
 </html>
