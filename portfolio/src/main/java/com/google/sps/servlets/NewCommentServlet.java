@@ -3,6 +3,7 @@ package com.google.sps.servlets;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.Key;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +23,8 @@ public class NewCommentServlet extends HttpServlet {
   }
 
   private Entity createCommentEntity(HttpServletRequest request) {
-    String author = request.getParameter("cf-name");
-    String message = request.getParameter("cf-message");
+    String author = request.getParameter("comment-form-name");
+    String message = request.getParameter("comment-form-message");
     long timestamp = System.currentTimeMillis();
     
     Entity commentEntity = new Entity("Comment");
@@ -33,4 +34,6 @@ public class NewCommentServlet extends HttpServlet {
 
     return commentEntity;
   }
+
+  
 }
