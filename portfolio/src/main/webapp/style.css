@@ -1,250 +1,169 @@
-/* General Style */
-
 html {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Titillium Web', sans-serif;
+  background-color: #111;
+  font-family: 'Monospace', sans-serif;
+  color: #cfdbd5;
   margin: 0;
 }
 
-/*Header Styling */
-
-h1 {
-  color: white;
-  font-size: 80pt;
-  margin: 0;
-  padding: 0;
-}
-
-h2 {
-  color: #353535;
-  font-size: 20pt;
-  margin: 0;
-  padding: 0;
-}
-
-/* Nav Bar */
-
-nav {
-  background-color: #353535;
-  display: flex;
-  flex-flow: row-wrap;
-  font-family: 'Titillium Web', sans-serif;
-  justify-content: flex-end;
-  padding: 15px 15px 15px 15px; 
-}
-
-nav a {
-  color: white;
-  font-weight: bold;
-  padding: 0 15px 0 15px;
-  text-decoration: none; 
-}
-
-nav a:hover {
-  color: #f0a868;
-  font-weight: bold;
-  padding: 0 15px 0 15px;
-  text-decoration: none;
-}
-
-/* Header */
-
-.header { 
-  background-color: #f0a868;
+.main-container {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  min-height: 600px;
-  text-align: center;
-  width:100%;
+  margin: 0 auto;
+  max-width: 75%;
 }
 
-/* Main Flex Container */
-
-.flex-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
-
-.flex-container > * {
+.main-container > * {
   flex: 1 100%;
 }
 
-/* About Me (mid) */
-
-.flex-item-mid {
-  align-items: center;
-  background-color: #4C6D76;
-  color: #353535;
+.head-container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
-  min-height: 600px;
-  padding: 15px 0 15px 0;
+  justify-content: center;
 }
 
-.about-container {
-  align-items: center;
+.body-container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 
-.about-item-left {
-  background-color: #e5e5e5;
-  border-radius: 50px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  margin: 10px 0 10px 0;
-  min-height: 400px;
-  padding: 50px;
-  width: 35%;
-}
-
-/* About Me Right Side */
-
-.about-item-right {
-  background-color: #e5e5e5;
-  border-radius: 50px;
-  padding: 50px;
-  margin: 10px 0 10px 0;
-  min-height: 400px;
-  width: 35%;
+h1 {
+  font-weight: 400;
 }
 
 ul {
+  margin: 0;
+  padding: 15px;
+}
+
+ul li {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-ul li {
-  font-size: 20pt;
-  margin-top: 5px;
+a {
+  text-decoration: none;
+  color: #cfdbd5;
 }
 
-/* Comments */
-
-.flex-item-mid-two {
-  align-items: center;
-  background-color: #e5e5e5;
-  color: #353535;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  min-height: 600px;
-  padding: 15px 0 15px 0;
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: #00a8e8;
 }
 
-.comment-container {
-  align-items: center;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  width: 100%;
+input[type=text] {
+  background-color: #111;
+   border-color: #111;
+  border-width: 0 0 1px;
+  caret-color: #f5cb5c;
+  color: #cc444b;
+  font-family: 'Monospace', sans-serif;
+  font-size: 12pt;
+  outline: 0;
 }
 
-.form-item {
-  align-content: center;
-  background-color: #f0a868;
-  border-radius: 50px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  margin: 10px 0 10px 0;
-  min-height: 400px;
-  padding: 50px;
-  width: 35%;
+input[type=text]:focus {
+  background-color: #111;
+  border-color: #f5cb5c;
+  border-width: 0 0 1px;
+  caret-color: #f5cb5c;
+  color: #cc444b;
+  font-family: 'Monospace', sans-serif;
+  font-size: 12pt;
+  outline: 0;
 }
 
-form {
-  width: 100%;
-}
-
-input[type=text], input[type=textarea] {
+input[type=number] {
+  background-color: #111;
   border: none;
-  border-radius: 50px;
-  width: 200px;
-  padding: 10px;
-  transition: width 0.4s ease-in-out;
+  color: #444444;
+  font-family: 'Monospace', sans-serif;
 }
 
-input[type=text]:focus, input[type=textarea]:focus {
-  background-color: #353535;
-  border: none;
-  border-radius: 50px;
-  color: #ffffff;
-  width: 100%;
-  padding: 10px;
+input[type=number]:focus {
+  background-color: #111;
+  border-color: #f5cb5c;
+  border-width: 0 0 1px;
+  color: #444444;
+  font-family: 'Monospace', sans-serif;
+  outline: 0;
 }
 
 input[type=submit] {
-  background-color: #353535;
+  background-color: #111;
   border: none;
-  border-radius: 50px;
-  color: #ffffff;
-  padding: 10px;
+  color: #cc444b;
+  font-family: 'Monospace', sans-serif;
+  font-size: 12pt;
 }
 
 input[type=submit]:hover {
-  background-color: #e5e5e5;
   border: none;
-  border-radius: 50px;
-  color: #f0a868;
-  padding: 10px;
+  text-decoration: underline;
+  text-decoration-color: #f5cb5c;
 }
 
-.comment-element {
-  background-color: #e5e5e5;
-  border-radius: 25px;
-  display: flex;
-  flex-flow: column wrap;
-  padding: 15px;
-  margin: 5px 0 5px 0;
-  word-wrap: break-word;
+input:focus {
+  outline: none;
 }
 
-.comment-element p,
-.comment-element h3 {
-   max-width: 100%;
+.input-wrap-name {
+  position: relative;
 }
 
-.comments-item {
-  background-color: #f0a868;
-  border-radius: 50px;
-  padding: 50px;
-  margin: 10px 0 10px 0;
-  max-height: 400px;
-  overflow-y: scroll;
-  width: 35%;
+.input-wrap-name .input {
+  position: absolute;
+  width: 100%;
+  left: 0;
 }
 
-/* Footer */
-
-.flex-item-bottom {
-  background-color: #353535;
-  color: #353535;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  min-height: 100px;  
-  padding: 50px;
+.extra-width-name {
+  padding: 0 0 0 1rem;
 }
 
-/* Icon Styling */
-
-.icon-link {
-  color: #e5e5e5;
-  text-decoration: none;
+.input-wrap-message {
+  position: relative;
 }
 
-.icon-link:hover {
-  color: #f0a868;
-  text-decoration: none;
+.input-wrap-message .input {
+  position: absolute;
+  width: 100%;
+  left: 0;
 }
+
+.extra-width-message {
+  padding: 0 0 0 1rem;
+}
+
+.text-tag-label {
+  color: #f5cb5c;
+}
+
+.text-css-label {
+  color: #bdd5ea;
+}
+
+.text-css-value {
+  color: #cc444b;
+}
+
+.text-css-value a {
+  color: #cc444b;
+}
+
+.text-tag-openclose {
+  color: #e26d5c;
+}
+
+.text-comment {
+  color: #444444;
+}
+

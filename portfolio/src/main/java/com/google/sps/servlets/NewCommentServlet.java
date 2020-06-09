@@ -19,7 +19,7 @@ public class NewCommentServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(createCommentEntity(request));
-    response.sendRedirect("/index.html");
+    response.sendRedirect("/comments.html");
   }
 
   private Entity createCommentEntity(HttpServletRequest request) {
