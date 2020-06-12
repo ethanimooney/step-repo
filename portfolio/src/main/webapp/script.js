@@ -46,52 +46,48 @@ function loadComments() {
     const commentListElement = document.getElementById('comments-list');
     document.getElementById('comments-list').innerHTML = "";
     comments.forEach((comment) => {
-      commentListElement.appendChild(createCommentElement(comment));
+      const commentElement = document.createElement('p');
+      commentElement.className = 'comment-element';
+      commentElement.appendChild(createDiv(comment.author, 'text-css-label'));
+      commentElement.appendChild(createDiv(comment.message, 'text-css-value'));
+      commentElement.appendChild(createDiv('}', ''));
+      commentListElement.appendChild(commentElement);
     })
   });
 }
 
-function createCommentElement(comment) {
-  const commentElement = document.createElement('li');
-  commentElement.className = 'comment-element';
+function createDiv(passMessage, passClass) {
 
-  const authorElement = document.createTextNode(comment.author);
+  const child = document.createElement('div');
 
-  const messageElement = document.createTextNode(comment.message);
+  if (passClass == 'text-css-label') {
+    const labelSpan = document.createElement('span');
+    const bracket = document.createTextNode(" {");
 
-  const spanOne = document.createElement('span');
-  spanOne.className = 'text-css-label';
+    labelSpan.className = passClass;
+    labelSpan.innerText = '.' + passMessage;
 
-  const spanTwo = document.createElement('span');
-  spanTwo.className = 'text-css-value';
+    child.appendChild(labelSpan);
+    child.appendChild(bracket);
+  }
+  else if (passClass == 'text-css-value') {
+    const subChild = document.createElement('span');
+    subChild.className = passClass;
 
-  const br = document.createElement('br');
-  const br2 = document.createElement('br');
-  const br3 = document.createElement('br');
-  const br4 = document.createElement('br');
-  const dot = document.createTextNode(".");
-  const leftBrace = document.createTextNode(" {");
-  const rightBrace = document.createTextNode("}");
-  const messageTitle = document.createTextNode("message: ");
-  const semi = document.createTextNode(";");
-  const tabs = document.createTextNode("\u00A0");
+    const title = document.createTextNode('\u00A0\u00A0message: ');
+    const value = document.createTextNode(passMessage);
+    const semicolon = document.createTextNode(';');
 
+    subChild.appendChild(value);
+    child.appendChild(title);
+    child.appendChild(subChild);
+    child.appendChild(semicolon);
+  }
+  else {
+    child.innerText = passMessage;
+  }
 
-  commentElement.appendChild(spanOne);
-  spanOne.appendChild(dot);
-  spanOne.appendChild(authorElement);
-  commentElement.appendChild(leftBrace);
-  commentElement.appendChild(br);
-
-  commentElement.appendChild(tabs);
-  commentElement.appendChild(tabs);
-  commentElement.appendChild(messageTitle);
-  commentElement.appendChild(spanTwo);
-  spanTwo.appendChild(messageElement);
-  commentElement.appendChild(semi);
-  commentElement.appendChild(br2);
-  commentElement.appendChild(rightBrace);
-  commentElement.appendChild(br3);
-  commentElement.appendChild(br4);
-  return commentElement;
+  return child;
 }
+
+
