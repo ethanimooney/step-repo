@@ -61,19 +61,23 @@ function createDiv(passMessage, passClass) {
   const child = document.createElement('div');
 
   if (passClass == 'text-css-label') {
-    const labelSpan = document.createElement('span');
+    const cssLabelColorSpan = document.createElement('span');
     const bracket = document.createTextNode(" {");
 
-    labelSpan.className = passClass;
-    labelSpan.innerText = '.' + passMessage;
+    cssLabelColorSpan.className = passClass;
+    cssLabelColorSpan.innerText = '.' + passMessage;
 
-    child.appendChild(labelSpan);
+    child.appendChild(cssLabelColorSpan);
     child.appendChild(bracket);
   }
   else if (passClass == 'text-css-value') {
     const subChild = document.createElement('span');
     subChild.className = passClass;
 
+    /* 
+    '\u00A0' is the code for a non-breaking white space,
+    used here as a simulated tabspace
+    */
     const title = document.createTextNode('\u00A0\u00A0message: ');
     const value = document.createTextNode(passMessage);
     const semicolon = document.createTextNode(';');
