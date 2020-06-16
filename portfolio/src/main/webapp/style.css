@@ -151,15 +151,15 @@ input:focus {
   color: #f5cb5c;
 }
 
-.text-css-label {
+.lightBlueColor {
   color: #bdd5ea;
 }
 
-.text-css-value {
+.redColor {
   color: #cc444b;
 }
 
-.text-css-value a {
+.redColor a {
   color: #cc444b;
 }
 

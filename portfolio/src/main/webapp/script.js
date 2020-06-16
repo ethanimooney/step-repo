@@ -44,54 +44,54 @@ function loadComments() {
 
   fetch('/list-comments?num=' + numComments).then(response => response.json()).then((comments) => {
     const commentListElement = document.getElementById('comments-list');
-    document.getElementById('comments-list').innerHTML = "";
+    commentListElement.innerHTML = "";
     comments.forEach((comment) => {
       const commentElement = document.createElement('p');
       commentElement.className = 'comment-element';
-      commentElement.appendChild(createDiv(comment.author, 'text-css-label'));
-      commentElement.appendChild(createDiv(comment.message, 'text-css-value'));
+      commentElement.appendChild(createDiv(comment.author, 'lightBlueColor'));
+      commentElement.appendChild(createDiv(comment.message, 'redColor'));
       commentElement.appendChild(createDiv('}', ''));
       commentListElement.appendChild(commentElement);
     })
   });
 }
 
-function createDiv(passMessage, passClass) {
+function createDiv(text, cssClass) {
 
-  const child = document.createElement('div');
+  const commentDiv = document.createElement('div');
 
-  if (passClass == 'text-css-label') {
-    const cssLabelColorSpan = document.createElement('span');
-    const bracket = document.createTextNode(" {");
+  if (cssClass == 'lightBlueColor') {
+    const authorSpan = document.createElement('span');
+    const bracket = document.createTextNode(' {');
 
-    cssLabelColorSpan.className = passClass;
-    cssLabelColorSpan.innerText = '.' + passMessage;
+    authorSpan.className = cssClass;
+    authorSpan.innerText = '.' + text;
 
-    child.appendChild(cssLabelColorSpan);
-    child.appendChild(bracket);
+    commentDiv.appendChild(authorSpan);
+    commentDiv.appendChild(bracket);
   }
-  else if (passClass == 'text-css-value') {
-    const subChild = document.createElement('span');
-    subChild.className = passClass;
+  else if (cssClass == 'redColor') {
+    const messageSpan = document.createElement('span');
+    messageSpan.className = cssClass;
 
     /* 
     '\u00A0' is the code for a non-breaking white space,
     used here as a simulated tabspace
     */
     const title = document.createTextNode('\u00A0\u00A0message: ');
-    const value = document.createTextNode(passMessage);
+    const message = document.createTextNode(text);
     const semicolon = document.createTextNode(';');
 
-    subChild.appendChild(value);
-    child.appendChild(title);
-    child.appendChild(subChild);
-    child.appendChild(semicolon);
+    messageSpan.appendChild(message);
+    commentDiv.appendChild(title);
+    commentDiv.appendChild(messageSpan);
+    commentDiv.appendChild(semicolon);
   }
   else {
-    child.innerText = passMessage;
+    commentDiv.innerText = text;
   }
 
-  return child;
+  return commentDiv;
 }
 
 
