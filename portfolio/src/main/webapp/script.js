@@ -25,26 +25,73 @@ function changeTextBack(text) {
   display.innerHTML = text;
 }
 
+//Form Text Input Resizing Function - Name
+let elName = document.querySelector(".input-wrap-name .input");
+let extraWidthName = document.querySelector(".input-wrap-name .extra-width-name");
+elName.addEventListener("keyup", () => {
+  extraWidthName.innerHTML = elName.value;
+});
+
+//Form Text Input Resizing Function - Message
+let elMessage = document.querySelector(".input-wrap-message .input");
+let extraWidthMessage = document.querySelector('.input-wrap-message .extra-width-message');
+elMessage.addEventListener("keyup", () => {
+  extraWidthMessage.innerHTML = elMessage.value;
+});
+
 function loadComments() {
-  fetch('/list-comments').then(response => response.json()).then((comments) => {
+  var numComments = document.getElementById("num-comments").value;
+
+  fetch('/list-comments?num=' + numComments).then(response => response.json()).then((comments) => {
     const commentListElement = document.getElementById('comments-list');
+    commentListElement.innerHTML = "";
     comments.forEach((comment) => {
-      commentListElement.appendChild(createCommentElement(comment));
+      const commentElement = document.createElement('p');
+      commentElement.className = 'comment-element';
+      commentElement.appendChild(createDiv(comment.author, 'lightBlueColor'));
+      commentElement.appendChild(createDiv(comment.message, 'redColor'));
+      commentElement.appendChild(createDiv('}', ''));
+      commentListElement.appendChild(commentElement);
     })
   });
 }
 
-function createCommentElement(comment) {
-  const commentElement = document.createElement('div');
-  commentElement.className = 'comment-element';
+function createDiv(text, cssClass) {
 
-  const authorElement = document.createElement('h3');
-  authorElement.innerText = comment.author;
+  const commentDiv = document.createElement('div');
 
-  const messageElement = document.createElement('p');
-  messageElement.innerText = comment.message;
+  if (cssClass == 'lightBlueColor') {
+    const authorSpan = document.createElement('span');
+    const bracket = document.createTextNode(' {');
 
-  commentElement.appendChild(authorElement);
-  commentElement.appendChild(messageElement);
-  return commentElement;
+    authorSpan.className = cssClass;
+    authorSpan.innerText = '.' + text;
+
+    commentDiv.appendChild(authorSpan);
+    commentDiv.appendChild(bracket);
+  }
+  else if (cssClass == 'redColor') {
+    const messageSpan = document.createElement('span');
+    messageSpan.className = cssClass;
+
+    /* 
+    '\u00A0' is the code for a non-breaking white space,
+    used here as a simulated tabspace
+    */
+    const title = document.createTextNode('\u00A0\u00A0message: ');
+    const message = document.createTextNode(text);
+    const semicolon = document.createTextNode(';');
+
+    messageSpan.appendChild(message);
+    commentDiv.appendChild(title);
+    commentDiv.appendChild(messageSpan);
+    commentDiv.appendChild(semicolon);
+  }
+  else {
+    commentDiv.innerText = text;
+  }
+
+  return commentDiv;
 }
+
+

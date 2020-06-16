@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <title>Ethan Mooney</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" href="/images/favicon.png">
+  </head>
+
+  <body onload="loadComments()">
+    <div class="main-code-body">
+      <ul class="main-code-body-list">
+
+        <!--Navigation-->
+        <li class="text-comment">
+          /* Navigation */
+        </li>
+        <li>
+          <span class="lightBlueColor">.nav</span> {</br>
+          &nbsp;&nbsp;back: <span class="redColor"><a href="/index.html">Home</a></span>;</br>
+          &nbsp;&nbsp;here: <span class="redColor"><a href="/comments.html">Comments</a></span>;</br>
+          }</br></br>
+        </li>
+        
+        <!--Comment Form-->
+        <li class="text-comment">
+          
+          /* Comment Form */</br>
+        </li>
+        <form action="/new-comment" method="POST">   
+          <li>
+            <span class="lightBlueColor">.submit-a-comment</span> {
+            </br>
+            &nbsp;&nbsp;enter-a-name: 
+            <span class="input-wrap-name">
+            <span class="extra-width-name" aria-hidden="true"></span>
+            <input class="input" type="text" id="comment-form-name" name="comment-form-name"></span>
+            ;</br>
+            &nbsp;&nbsp;enter-a-message: 
+            <span class="input-wrap-message">
+            <span class="extra-width-message" aria-hidden="true"></span>
+            <input class="input" type="text" id="comment-form-message" name="comment-form-message"></span>
+            ;</br>
+            &nbsp;&nbsp;submit-form:<input type="submit" value="submit">
+            ;</br>
+            }</br></br>
+          </li>
+        </form>
+
+        <!--Comment Display-->
+        <li class="text-comment">
+          
+          /* Comments */</br>
+          <label for="numComments">/* Number of Comments to Display:</label>
+          <input type="number" id="num-comments" name="numComments" min="1" max="30" value="5" onchange="loadComments()"> */
+        </li>
+        <li>
+          <ul id="comments-list"></ul>
+        </li>
+      </ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
