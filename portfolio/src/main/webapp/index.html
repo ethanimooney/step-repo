@@ -7,7 +7,7 @@
 	<link rel="icon" href="/images/favicon.png">
   </head>
 
-  <body>
+  <body onload="createMap();">
     <div class="main-code-body">
       <ul class="main-code-body-list">
 
@@ -133,6 +133,8 @@
           &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-tag-openclose">&lt;/</span><span class="text-tag-label">div</span><span class="text-tag-openclose">&gt;</span></br></br>
         </li>
 
+        <li id="map"></li>
+
         <li>
           &nbsp;&nbsp;<span class="text-tag-openclose">&lt;/</span><span class="text-tag-label">body</span><span class="text-tag-openclose">&gt;</span>
         </li>
@@ -142,7 +144,10 @@
       </ul>
       </div>
     </div>
-    
+
+    <script src="mapScript.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcFx4J-1SbSquslqN-8tWuPXdXbuVnY38"></script>
+     
   </body>
   
 </html>

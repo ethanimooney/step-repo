@@ -12,19 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-function changeText(text) {
-  var display = document.getElementById('text-switcher');
-  display.innerHTML = "";
-  display.innerHTML = text;
-}
-
-function changeTextBack(text) {
-  var display = document.getElementById('text-switcher');
-  display.innerHTML = "";
-  display.innerHTML = text;
-}
-
 //Form Text Input Resizing Function - Name
 let elName = document.querySelector(".input-wrap-name .input");
 let extraWidthName = document.querySelector(".input-wrap-name .extra-width-name");
@@ -93,5 +80,6 @@ function createDiv(text, cssClass) {
 
   return commentDiv;
 }
+
 
 
