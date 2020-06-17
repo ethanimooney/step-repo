@@ -172,3 +172,8 @@ input:focus {
   padding: 16.8px 0 0 0;
 }
 
+#map {
+  border: thin solid black;
+  height: 500px;
+  width: 500px;
+}
